@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Blog post
  */
@@ -10,24 +11,7 @@ class Post
   private string $date;
   private int $id_author;
   private string $image;
-
-  public function __construct(
-    int $id_post,
-    string $title,
-    string $content,
-    string $date,   
-    int $id_author,
-    string $image
-  )
-  {
-    $this->id_post = $id_post;
-    $this->title = $title;
-    $this->content = $content;
-    $this->date = $date; 
-    $this->id_author = $id_author;
-    $this->image = $image;
-  }
-
+  
   /**
    * Getters
    */
