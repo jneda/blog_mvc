@@ -1,7 +1,7 @@
 <?php
 
-require_once 'model/DBConnect.php';
+require_once 'model/manager/PostManager.php';
 
-$message = "Bonjour tout le monde !";
+$posts = PostManager::fetchAllPosts();
 
 require_once 'view/indexView.php';
