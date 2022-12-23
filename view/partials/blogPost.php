@@ -12,6 +12,7 @@
         </p>
         <p class="blog-post-text fs-4"><?php echo $post->getContent() ?></p>
     </div>
-    <a href="index.php" class="btn btn-outline-primary">&laquo; Je retourne lire d'autres articles !</a>
+    <a href="index.php" class="btn btn-outline-primary my-1">&laquo; Je retourne lire d'autres articles !</a>
+    <a href="comment.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary my-1">Quel super article ! Je commente !</a>
   </div>
 </div>
