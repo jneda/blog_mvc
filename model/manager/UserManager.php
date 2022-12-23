@@ -9,7 +9,7 @@ class UserManager
    * Read static methods
    */
 
-  public static function getUserById(int $idUser): User
+  public static function getUserById(int $idUser): User|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM user WHERE id_user=:idUser';
@@ -21,7 +21,7 @@ class UserManager
     return $statement->fetch();
   }
 
-  public static function getUserByName(string $username): User
+  public static function getUserByName(string $username): User|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM user WHERE username=:username';
@@ -33,7 +33,7 @@ class UserManager
     return $statement->fetch();
   }
 
-  public static function getUserByEmail(string $email): User | bool
+  public static function getUserByEmail(string $email): User|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM user WHERE email=:email';

@@ -18,6 +18,17 @@ class PostManager
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Post');
   }
 
+  public static function fetchAllPostsFromUserId(int $userId): array
+  {
+    $databaseHandle = dbConnect();
+    $query = 'SELECT * FROM post as P WHERE P.id_author = :userId';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'userId' => $userId
+    ]);
+    return $statement->fetchAll(PDO::FETCH_CLASS, 'Post');
+  }
+
   public static function getPostById(int $idPost): Post
   {
     $databaseHandle = dbConnect();
