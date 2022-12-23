@@ -1,3 +1,10 @@
+<?php
+$userConnected = isset($_SESSION['user']) && !empty($_SESSION['user']['id']);
+if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+  $logoutAlert = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,10 +32,16 @@
           <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
           </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="login.php">Se connecter</a>
-          </li>
-         <!--  <li class="nav-item">
+          <?php if (!$userConnected) { ?>
+            <li class="nav-item">
+              <a class="nav-link" href="login.php">Se connecter</a>
+            </li>
+          <?php } else { ?>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Se déconnecter</a>
+            </li>
+          <?php } ?>
+          <!--  <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
@@ -55,3 +68,12 @@
       </div>
     </div>
   </nav>
+
+  <?php if (isset($logoutAlert)) {
+    $successMessage = 'Tu es déconnecté. 👋'; ?>
+    <div class="my-3">
+    <?php
+    require_once './view/partials/successAlert.php';
+  }
+    ?>
+    </div>
