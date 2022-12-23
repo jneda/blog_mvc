@@ -32,6 +32,19 @@ class Comment
     return $this->date;
   }
 
+  public function getFormattedDate(): string
+  {
+    $fmt = new IntlDateFormatter(
+      'fr_FR',
+      IntlDateFormatter::MEDIUM,
+      IntlDateFormatter::MEDIUM,
+      'Europe/Paris',
+      IntlDateFormatter::GREGORIAN
+    );
+
+    return $fmt->format(new DateTime($this->date));
+  }
+
   public function getContent(): string
   {
     return $this->content;
