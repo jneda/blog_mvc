@@ -41,13 +41,13 @@ if (!empty($_POST)) {
     die();
   }
 
-  $successMessage = sprintf('Bienvenue à toi, %s ! 🥳', $username);
-  require_once './view/partials/successAlert.php';
-
   // update session
   $id = (UserManager::getUserByEmail($email))->getUserId();
   $_SESSION['user'] = [
     'id' => $id,
     'name' => $username
   ];
+
+  // redirect
+  header('Location: index.php?login=success');
 }

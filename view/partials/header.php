@@ -3,6 +3,10 @@ $userConnected = isset($_SESSION['user']) && !empty($_SESSION['user']['id']);
 if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
   $logoutAlert = true;
 }
+if (isset($_GET['login']) && $_GET['login'] === 'success') {
+  $loginAlert = true;
+  $username = $_SESSION['user']['name'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +73,12 @@ if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
     </div>
   </nav>
 
-  <?php if (isset($logoutAlert)) {
-    $successMessage = 'Tu es déconnecté. 👋'; ?>
-    <div class="my-3">
-    <?php
+  <?php
+  if (isset($logoutAlert)) {
+    $successMessage = 'Tu es déconnecté. 👋';
+    require_once './view/partials/successAlert.php';
+  } else if (isset($loginAlert)) {
+    $successMessage = sprintf('Salut à toi, %s 🥳', $username);
     require_once './view/partials/successAlert.php';
   }
-    ?>
-    </div>
+  ?>
