@@ -42,6 +42,9 @@ if (isset($_GET['login']) && $_GET['login'] === 'success') {
             </li>
           <?php } else { ?>
             <li class="nav-item">
+              <a class="nav-link" href="new-post.php">Écrire un super article !</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="logout.php">Se déconnecter</a>
             </li>
           <?php } ?>
