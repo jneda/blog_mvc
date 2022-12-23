@@ -11,7 +11,7 @@ class Post
   private string $date;
   private int $id_author;
   private string $image;
-  
+
   /**
    * Getters
    */
@@ -34,6 +34,19 @@ class Post
   public function getDate(): string
   {
     return $this->date;
+  }
+
+  public function getFormattedDate(): string
+  {
+    $fmt = new IntlDateFormatter(
+      'fr_FR',
+      IntlDateFormatter::MEDIUM,
+      IntlDateFormatter::MEDIUM,
+      'Europe/Paris',
+      IntlDateFormatter::GREGORIAN
+    );
+
+    return $fmt->format(new DateTime($this->date));
   }
 
   public function getIdAuthor(): int
@@ -69,7 +82,7 @@ class Post
   {
     $this->id_author = $idAuthor;
   }
-  
+
   public function setImage(string $image)
   {
     $this->image = $image;
