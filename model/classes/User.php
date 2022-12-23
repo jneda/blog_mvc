@@ -23,7 +23,7 @@ class User
 
   public function getEmail(): string
   {
-    return $this->emai;
+    return $this->email;
   }
 
   public function getPassword(): string
