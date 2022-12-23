@@ -5,6 +5,10 @@ require_once './model/classes/Post.php';
 
 class PostManager
 {
+  /**
+   * Read static methods
+   */
+  
   public static function fetchAllPosts(): array
   {
     $databaseHandle = dbConnect();
@@ -24,5 +28,32 @@ class PostManager
     ]);
     $statement->setFetchMode(PDO::FETCH_CLASS, 'Post');
     return $statement->fetch();
+  }
+
+  /**
+   * Create static methods
+   */
+
+  public static function createPost(array $postData): bool
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      INSERT INTO post (title, content, date, id_author, image)
+      VALUES (:title, :content, :date, :id_author, :image)
+    ';
+    $statement = $databaseHandle->prepare($query);
+    $ok = $statement->execute([
+      'title' => $postData['title'],
+      'content' => $postData['content'],
+      'date' => (new DateTime())->format('Y-m-d H:i:s'),
+      'id_author' => $postData['idAuthor'],
+      'image' => $postData['image']
+    ]);
+
+    if (!$ok) {
+      return false;
+    }
+
+    return true;
   }
 }

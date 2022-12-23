@@ -17,8 +17,8 @@ require_once 'partials/header.php';
     <label for="image">Image :</label>
     <input type="file" class="form-control-file" id="image" name="image">
   </div>
-  <button type="submit" class="btn btn-primary offset-md-3">Se connecter</button>
-  <a href="signup.php" class="btn btn-outline-primary">S'inscrire</a>
+  <button type="submit" class="btn btn-primary offset-md-3">Je publie !</button>
+  <!-- <a href="signup.php" class="btn btn-outline-primary">S'inscrire</a> -->
 </form>
 
 <?php
