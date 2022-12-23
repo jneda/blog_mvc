@@ -8,7 +8,7 @@ class PostManager
   /**
    * Read static methods
    */
-  
+
   public static function fetchAllPosts(): array
   {
     $databaseHandle = dbConnect();
@@ -42,18 +42,13 @@ class PostManager
       VALUES (:title, :content, :date, :id_author, :image)
     ';
     $statement = $databaseHandle->prepare($query);
-    $ok = $statement->execute([
+
+    return $statement->execute([
       'title' => $postData['title'],
       'content' => $postData['content'],
       'date' => (new DateTime())->format('Y-m-d H:i:s'),
       'id_author' => $postData['idAuthor'],
       'image' => $postData['image']
     ]);
-
-    if (!$ok) {
-      return false;
-    }
-
-    return true;
   }
 }
