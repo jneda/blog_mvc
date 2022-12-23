@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once './model/manager/UserManager.php';
 require_once './view/loginView.php';
@@ -35,4 +36,11 @@ if (!empty($_POST)) {
 
   $successMessage = sprintf('Salut à toi, %s ! 🥳', $user->getUsername());
   require_once './view/partials/successAlert.php';
+
+  // update session
+  $username = (UserManager::getUserByEmail($email))->getUsername();
+  $_SESSION['user'] = [
+    'id' => $user->getUserId(),
+    'name' => $username
+  ];
 }

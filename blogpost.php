@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once './lib/validation.php';
 require_once './model/manager/PostManager.php';
