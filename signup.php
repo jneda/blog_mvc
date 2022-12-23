@@ -1,12 +1,11 @@
 <?php
 
 require_once './model/manager/UserManager.php';
-
-// $message = "Bienvenue sur cet article de blog !";
-
 require_once './view/signupView.php';
 
 if (!empty($_POST)) {
+  // validate inputs
+
   require_once './lib/validation.php';
   $username = sanitizeInput($_POST['username']);
   $email = sanitizeInput($_POST['email']);
@@ -22,10 +21,15 @@ if (!empty($_POST)) {
     die();
   }
 
+  // hash password
+  $hash = password_hash($password, PASSWORD_BCRYPT);
+
+  // create user in database
+
   $ok = UserManager::registerUser([
     'username' => $username,
     'email' => $email,
-    'password' => $password
+    'password' => $hash
   ]);
 
   if (!$ok) {
