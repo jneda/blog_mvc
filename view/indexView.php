@@ -1,7 +1,11 @@
 <?php
 
-require_once 'partials/header.php';
+require_once './view/partials/header.php';
+?>
 
-require_once 'partials/blogPostsList.php';
+<div class="container my-3 col-md-6 offset-md-3">
+  <?php require_once './view/partials/blogPostsList.php'; ?>
+</div>
 
-require_once "partials/footer.php";
+<?php
+require_once "./view/partials/footer.php";
