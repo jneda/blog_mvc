@@ -5,6 +5,10 @@ require_once './model/DBConnect.php';
 
 class UserManager
 {
+  /**
+   * Read static methods
+   */
+
   public static function getUserById(int $idUser): User
   {
     $databaseHandle = dbConnect();
@@ -39,5 +43,24 @@ class UserManager
     ]);
     $statement->setFetchMode(PDO::FETCH_CLASS, 'User');
     return $statement->fetch();
+  }
+
+  /**
+   * Write static methods
+   */
+
+  public static function registerUser(array $userData): bool
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      INSERT INTO user (username, email, password)
+      VALUES (:username, :email, :password)
+    ';
+    $statement = $databaseHandle->prepare($query);
+    return $statement->execute([
+      'username' => $userData['username'],
+      'email' => $userData['email'],
+      'password' => $userData['password']
+    ]);
   }
 }
