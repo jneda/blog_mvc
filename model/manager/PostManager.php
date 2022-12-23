@@ -29,7 +29,7 @@ class PostManager
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Post');
   }
 
-  public static function getPostById(int $idPost): Post
+  public static function getPostById(int $idPost): Post|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM post WHERE id_post=:idPost';

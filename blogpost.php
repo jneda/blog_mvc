@@ -17,6 +17,9 @@ if (empty($_GET)) {
     $errorMessage = 'Adresse invalide !';
   } else {
     $post = PostManager::getPostById($postId);
+    if (!$post) {
+      header('Location: index.php');
+    }
     $author = UserManager::getUserById($post->getIdAuthor());
   }
 }
