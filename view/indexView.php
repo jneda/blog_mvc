@@ -3,7 +3,7 @@
 require_once './view/partials/header.php';
 ?>
 
-<div class="container my-3 col-md-6 offset-md-3">
+<div class="container my-3">
   <?php require_once './view/partials/blogPostsList.php'; ?>
 </div>
 

@@ -1,4 +1,4 @@
-<div class="my-3">
+<div class="row">
   <?php
   foreach ($posts as $post) {
     require 'blogpostCard.php';
