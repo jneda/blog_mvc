@@ -81,7 +81,7 @@ if (isset($_GET['login']) && $_GET['login'] === 'success') {
     $successMessage = 'Tu es déconnecté. 👋';
     require_once './view/partials/successAlert.php';
   } else if (isset($loginAlert)) {
-    $successMessage = sprintf('Salut à toi, %s 🥳', $username);
+    $successMessage = sprintf('Salut à toi, <b>%s</b> 🥳', $username);
     require_once './view/partials/successAlert.php';
   }
   ?>
