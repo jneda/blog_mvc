@@ -4,7 +4,7 @@
     <div class="card-body">
       <h2 class="card-title my-3"><?php echo $post->getTitle() ?></h2>
       <!-- <p class="card-text"><?php echo $post->getContent() ?></p> -->
-      <a  href="blogPost.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary mt-3">Je veux lire la suite !</a>
+      <a  href="blogpost.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary mt-3">Je veux lire la suite !</a>
     </div>
   </div>
 </div>
