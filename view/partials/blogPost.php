@@ -1,9 +1,9 @@
 <div class="row my-3">
-  <div class="blog-post col-lg-8 offset-lg-2">
-    <img src="<?php echo $post->getImage() ?>" class="blog-post-img rounded d-block mx-auto" alt="<?php echo $post->getTitle() ?>" style="max-width: 640px; object-fit: cover">
-    <div class="blog-post-body my-3">
-      <h1 class="blog-post-title fs-2"><?php echo $post->getTitle() ?></h5>
-        <p class="blog-post-author">
+  <div class="col-lg-8 offset-lg-2">
+    <img src="<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">
+    <div class="my-3">
+      <h1 class="fs-2"><?php echo $post->getTitle() ?></h5>
+        <p>
           par
           <strong>
             <a href="user.php?id=<?= $author->getUserId() ?>">
@@ -12,7 +12,7 @@
           </strong>
           <span class="text-muted">- <?= $post->getFormattedDate() ?></span>
         </p>
-        <p class="blog-post-text fs-4"><?php echo $post->getContent() ?></p>
+        <p class="fs-4"><?php echo $post->getContent() ?></p>
     </div>
     <a href="index.php" class="btn btn-outline-primary my-1">
       &laquo; Je retourne lire d'autres articles !
