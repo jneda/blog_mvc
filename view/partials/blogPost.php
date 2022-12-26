@@ -2,7 +2,7 @@
   <div class="col-lg-8 offset-lg-2">
     <img src="<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">
     <div class="my-3">
-      <h1 class="fs-2"><?php echo $post->getTitle() ?></h5>
+      <h1><?php echo $post->getTitle() ?></h5>
         <p>
           par
           <strong>
@@ -12,7 +12,7 @@
           </strong>
           <span class="text-muted">- <?= $post->getFormattedDate() ?></span>
         </p>
-        <p class="fs-4" style="white-space: pre-wrap;"><?= $post->getContent() ?></p>
+        <p style="white-space: pre-wrap;"><?= $post->getContent() ?></p>
     </div>
     <a href="index.php" class="btn btn-outline-primary my-1">
       &laquo; Je retourne lire d'autres articles !
