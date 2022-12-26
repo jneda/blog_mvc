@@ -12,7 +12,7 @@
           </strong>
           <span class="text-muted">- <?= $post->getFormattedDate() ?></span>
         </p>
-        <p class="fs-4"><?php echo $post->getContent() ?></p>
+        <p class="fs-4" style="white-space: pre-wrap;"><?= $post->getContent() ?></p>
     </div>
     <a href="index.php" class="btn btn-outline-primary my-1">
       &laquo; Je retourne lire d'autres articles !

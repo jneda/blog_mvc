@@ -7,7 +7,7 @@
           par <strong><?= $commentAuthor->getUsername() ?></strong>
           <span class="text-muted">- <?= $comment->getFormattedDate() ?></span>
         </p>
-        <p class="card-text"><?php echo $comment->getContent() ?></p>
+        <p class="card-text" style="white-space: pre-wrap;"><?php echo $comment->getContent() ?></p>
       </div>
     </div>
   </div>
