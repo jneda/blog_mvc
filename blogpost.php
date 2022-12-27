@@ -3,6 +3,7 @@ session_start();
 
 require_once './lib/validation.php';
 require_once './model/manager/CommentManager.php';
+require_once './model/manager/PostCategoryManager.php';
 require_once './model/manager/PostManager.php';
 require_once './model/manager/UserManager.php';
 
@@ -40,6 +41,9 @@ if (empty($_GET)) {
         ];
       }
     }
+
+    // fetch categories data
+    $categories = PostCategoryManager::fetchCategoriesFromPostId($postId);
   }
 }
 
