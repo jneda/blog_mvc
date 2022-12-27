@@ -14,7 +14,7 @@ final class CategoryManager
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM category';
     $statement = $databaseHandle->prepare($query);
-    $statement->execute;
+    $statement->execute();
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Category');
   }
 
