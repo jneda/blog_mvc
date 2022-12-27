@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-require_once 'view/newPostView.php';
+require_once './model/manager/CategoryManager.php';
+
+$categories = CategoryManager::fetchAll();
 
 if (!empty($_POST)) {
+
+  var_dump($_POST['categories']);
+
   // validate inputs
 
   require_once './lib/validation.php';
@@ -17,7 +22,7 @@ if (!empty($_POST)) {
     !isInputValid($image)
   ) {
     $errorMessage = 'Données invalides';
-    require_once './view/partials/errorAlert.php';
+    require_once './view/newPostView.php';
     die();
   }
 
@@ -26,16 +31,16 @@ if (!empty($_POST)) {
   $ok = PostManager::createPost([
     'title' => $title,
     'content' => $content,
-    'idAuthor' => $_SESSION['user']['id'], 
+    'idAuthor' => $_SESSION['user']['id'],
+    // debug: dummy image
     'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cute_dog.jpg/640px-Cute_dog.jpg'
   ]);
 
   if (!$ok) {
     $errorMessage = 'Échec de l\'enregistrement !';
-    require_once './view/partials/errorAlert.php';
-    die();
   } else {
     $successMessage = 'Ton article a été sauvegardé pour la postérité !';
-    require_once './view/partials/successAlert.php';
   }
 }
+
+require_once './view/newPostView.php';
