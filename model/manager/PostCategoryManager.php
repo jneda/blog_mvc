@@ -22,4 +22,22 @@ final class PostCategoryManager
     $statement->execute(['postId' => $postId]);
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Category');
   }
+
+  /**
+   * Create static methods
+   */
+
+  public static function createPostCategory(int $postId, int $categoryId): void
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      INSERT INTO post_category (id_post, id_category)
+      VALUES (:postId, :categoryId)
+    ';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'postId' => $postId,
+      'categoryId' => $categoryId
+    ]);
+  }
 }
