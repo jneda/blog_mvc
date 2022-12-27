@@ -1,10 +1,12 @@
 <div class="row">
   <!-- categories -->
-  <p class="fs-5 mt-3">
-    <?php foreach ($categories as $category) { ?>
-      <span class="badge bg-secondary me-auto p-2"><?= $category->getName() ?></span>
-    <?php } ?>
-  </p>
+  <div class="col-lg-8 offset-lg-2">
+    <p class="fs-5 mt-3">
+      <?php foreach ($categories as $category) { ?>
+        <span class="badge bg-secondary me-auto p-2 my-1"><?= $category->getName() ?></span>
+      <?php } ?>
+    </p>
+  </div>
 </div>
 
 <div class="row my-3">
