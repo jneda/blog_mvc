@@ -10,7 +10,7 @@ final class PostCategoryManager
    * Read static methods
    */
 
-  function fetchCategoriesFromPostId(int $postId): array
+  public static function fetchCategoriesFromPostId(int $postId): array
   {
     $databaseHandle = dbConnect();
     $query = '
