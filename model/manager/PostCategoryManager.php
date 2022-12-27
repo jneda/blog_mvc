@@ -14,7 +14,7 @@ final class PostCategoryManager
   {
     $databaseHandle = dbConnect();
     $query = '
-      SELECT id_category, category_name FROM post_category AS p_c
+      SELECT c.id_category, category_name FROM post_category AS p_c
       INNER JOIN category AS c ON p_c.id_category=c.id_category
       WHERE p_c.id_post=:postId
     ';
