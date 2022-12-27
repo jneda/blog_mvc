@@ -22,6 +22,24 @@ if (!empty($_POST)) {
     die();
   }
 
+  // check if username or email are already registered
+  $usernameUsed = UserManager::getUserByName($username);
+  $emailUsed = UserManager::getUserByEmail($email);
+
+  if ($usernameUsed || $emailUsed) {
+    // build error message
+    $errorMessages = [];
+    if ($usernameUsed) {
+      $errorMessages[] = 'Ce nom est déjà utilisé';
+    }
+    if ($emailUsed) {
+      $errorMessages[] = 'Cet email est déjà utilisé';
+    }
+    $errorMessage = implode(' - ', $errorMessages);
+    require_once './view/partials/errorAlert.php';
+    die();
+  }
+
   // hash password
   $hash = password_hash($password, PASSWORD_BCRYPT);
 
