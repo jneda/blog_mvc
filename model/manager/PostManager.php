@@ -45,7 +45,7 @@ class PostManager
    * Create static methods
    */
 
-  public static function createPost(array $postData): bool
+  public static function createPost(array $postData): int
   {
     $databaseHandle = dbConnect();
     $query = '
@@ -54,12 +54,14 @@ class PostManager
     ';
     $statement = $databaseHandle->prepare($query);
 
-    return $statement->execute([
+    $statement->execute([
       'title' => $postData['title'],
       'content' => $postData['content'],
       'date' => (new DateTime())->format('Y-m-d H:i:s'),
       'id_author' => $postData['idAuthor'],
       'image' => $postData['image']
     ]);
+
+    return $databaseHandle->lastInsertId();
   }
 }

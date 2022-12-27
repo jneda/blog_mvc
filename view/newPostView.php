@@ -22,7 +22,7 @@ require_once 'partials/header.php';
       <select class="form-control" multiple aria-label="Catégories" id="categories" name="categories[]">
         <option selected></option>
         <?php foreach ($categories as $category) { ?>
-          <option value="<?= $category->getName() ?>"><?= $category->getName() ?></option>
+          <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
         <?php } ?>
       </select>
     </div>
