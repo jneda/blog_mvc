@@ -7,9 +7,6 @@ require_once './model/manager/PostCategoryManager.php';
 $categories = CategoryManager::fetchAll();
 
 if (!empty($_POST)) {
-
-  var_dump($_POST);
-
   // validate inputs
 
   require_once './lib/validation.php';
