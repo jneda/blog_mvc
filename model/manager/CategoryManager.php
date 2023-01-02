@@ -18,7 +18,7 @@ final class CategoryManager
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Category');
   }
 
-  public function getCategoryById(int $id): Category
+  public static function getCategoryById(int $id): Category|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM category WHERE id_category=:id';
@@ -28,7 +28,7 @@ final class CategoryManager
     return $statement->fetch();
   }
 
-  public function getCategoryByName(int $name): Category
+  public static function getCategoryByName(string $name): Category|bool
   {
     $databaseHandle = dbConnect();
     $query = 'SELECT * FROM category WHERE category_name=:name';
@@ -42,7 +42,13 @@ final class CategoryManager
    * Create static methods
    */
 
-  public function createCategory(string $categoryName): void
+  /**
+   * Save new category into database
+   *
+   * @param string $categoryName
+   * @return integer ID of new category
+   */
+  public static function createCategory(string $categoryName): int
   {
     $databaseHandle = dbConnect();
     $query = '
@@ -50,6 +56,8 @@ final class CategoryManager
       VALUES (:categoryName)
     ';
     $statement = $databaseHandle->prepare($query);
-    $statement->execute(['categoryName' => $categoryName]);
+    if ($statement->execute(['categoryName' => $categoryName])) {
+      return $databaseHandle->lastInsertId();
+    }
   }
 }
