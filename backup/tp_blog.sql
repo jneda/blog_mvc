@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 23, 2022 at 08:47 AM
+-- Generation Time: Jan 02, 2023 at 04:49 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -38,10 +38,12 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`id_category`, `category_name`) VALUES
 (1, 'Anthony'),
+(8, 'Chocolatine'),
 (6, 'Cray-1'),
 (3, 'Histoire de ma vie'),
 (2, 'Houlala'),
 (4, 'Ordinateur'),
+(9, 'Pain au chocolat'),
 (7, 'Piratage informatique'),
 (5, 'Swag');
 
@@ -64,11 +66,13 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`id_comment`, `id_post`, `id_author`, `date`, `content`) VALUES
-(1, 1, 2, '2022-12-21 14:43:34', 'Salut Anthony !\r\nProfite d\'une offre exceptionnelle sur les marqueurs effaçables en cliquant sur ce lien : <a href=http://www.totallynotsuspicous.ru>Marqueurs effaçables performants et pas chers !</a>.\r\nBises,\r\nToto Totovitch\r\n'),
+(1, 1, 2, '2022-12-21 14:43:34', 'Salut Anthony !\nProfite d\'une offre exceptionnelle sur les marqueurs effaçables en visitant ce site : www.totallynotsuspicous.ru !\nBises,\nToto Totovitch\n'),
 (2, 2, 3, '2022-12-21 14:46:26', 'La classe à Dallas ! 🤠'),
 (3, 1, 1, '2022-12-21 14:47:00', 'Merci Toto, c\'est vraiment chic de ta part !\r\nC\'est vrai qu\'il est difficile de trouver de bons marqueurs effaçables de nos jours. 😢\r\nJ\'irai voir ton lien quand j\'aurai fini de rembourser mon emprunt pour acheter mon nouvel ordinateur !'),
 (4, 3, 1, '2022-12-21 14:54:59', 'P.S. : Sauriez-vous où je pourrais télécharger de la RAM SVP ?'),
-(5, 3, 2, '2022-12-21 14:55:42', 'Salut Anthony !\r\nJe te recommande <a href=\"totallynotatrap.ru\">DownloadRAMForFree</a>, un super site de téléchargement de mémoire vive (utilisé par le GIGN et l\'Académie des Sciences de Melun).');
+(5, 3, 2, '2022-12-21 14:55:42', 'Salut Anthony !\nJe te recommande www.totallynotatrap.ru, un super site de téléchargement de mémoire vive (utilisé par le GIGN et l\'Académie des Sciences de Melun).\nBises,\nToto Totovitch'),
+(6, 3, 12, '2022-12-23 17:16:16', 'DTC ptdmdlol !!! 💩'),
+(8, 7, 3, '2022-12-23 17:19:01', 'C&#039;est vrai que c&#039;est bon, surtout avec du roquefort ! 😛');
 
 -- --------------------------------------------------------
 
@@ -90,9 +94,11 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id_post`, `title`, `content`, `date`, `id_author`, `image`) VALUES
-(1, 'Bienvenue sur mon blog ! 😁', 'Je m\'appelle Anthony Houlala et je suis développeur web.\r\nIci, vous pourrez suivre mes aventures et écrire des commentaires pour m\'encourager !\r\nÀ plus dans le bus !', '2022-12-21 14:35:43', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Anthony_3.jpg/583px-Anthony_3.jpg'),
+(1, 'Bienvenue sur mon blog ! 😁', 'Je m\'appelle Anthony Houlala et je suis développeur web.\r\nIci, vous pourrez suivre mes aventures et écrire des commentaires pour m\'encourager !\r\nÀ plus dans le bus !', '2022-12-21 14:35:43', 1, 'https://iili.io/HI1eCRs.jpg'),
 (2, 'Mon nouvel ordinateur ! 😍', 'Mon serveur personnel n\'arrivait plus à soutenir le trafic des visiteurs de mon blog.\r\nPlutôt que d\'optimiser l\'accès à la base de données, j\'en ai profité pour réaliser mon rêve : j\'ai acheté un Cray-1 !\r\nIl est pas beau mon bébé ? Dites-moi ce que vous en pensez en commentaire. 😉', '2022-12-21 14:38:24', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Cray-1_large_view.png/640px-Cray-1_large_view.png'),
-(3, 'J\'ai été piraté ! 😱', 'Je naviguais tranquillement sur le web, à la recherche de marqueurs effaçables performants et pas chers, quand tout à coup mon clavier a pris feu !\r\nDepuis, mon bébé refuse de démarrer. 😭\r\nHeureusement, je suis un professionnel : un formatage du disque dur devrait résoudre le problème.', '2022-12-21 14:50:57', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Burning_Logitech_12.jpg/640px-Burning_Logitech_12.jpg');
+(3, 'J\'ai été piraté ! 😱', 'Je naviguais tranquillement sur le web, à la recherche de marqueurs effaçables performants et pas chers, quand tout à coup mon clavier a pris feu !\r\nDepuis, mon bébé refuse de démarrer. 😭\r\nHeureusement, je suis un professionnel : un formatage du disque dur devrait résoudre le problème.', '2022-12-21 14:50:57', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Burning_Logitech_12.jpg/640px-Burning_Logitech_12.jpg'),
+(7, 'Les chocolatines c&#039;est bon ! 🙌', 'Salut tout le monde, Anthony m&#039;a invité sur son super site pour y partager ma passion des CHOCOLATINES ! 😍\nÀ bientôt pour un article passionnant sur la fabrication de la pâte feuilletée. 😉', '2022-12-23 14:48:15', 7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pain_au_chocolat_Luc_Viatour.jpg/640px-Pain_au_chocolat_Luc_Viatour.jpg'),
+(10, 'La pâte feuilletée c&#039;est dur ! 😬', 'La pâte feuilletée est réalisée à partir d&#039;une détrempe composée de farine, de sel et d&#039;eau. Des produits d&#039;addition peuvent être ajoutés à des fins technologiques ou pour optimiser la conservation du produit. Le type de mélange couramment réalisé est un pétrissage qui assure la répartition homogène et uniforme des constituants et l&#039;obtention d&#039;une masse. Des mouvements mécaniques de fraseurs dans une cuve mélange permettent une structuration de la pâte, son réseau de gluten est notamment formé.\n\nAprès un certain temps de repos, cette pâte est abaissée par le biais d&#039;un processus de laminage qui consiste en l&#039;utilisation de rouleaux en rotation en sens inverse qui exercent une pression sur celle-ci. Leur écartement est progressif afin d&#039;éviter d&#039;éventuels déchirements. L&#039;épaisseur de la pâte étant alors diminuée, on y étale alors de la matière grasse (généralement du beurre sec dit de tourage, mais parfois de la margarine ou de l&#039;huile), avant de replier la pâte, la pivoter et recommencer l&#039;opération plusieurs fois (classiquement six), en faisant reposer la pâte au réfrigérateur entre chaque tour, pour que la pâte perde son élasticité et que la matière grasse durcisse. C&#039;est cette opération dite de « tourage » (abaisser, tourner, plier) qui permet d&#039;obtenir un nombre important de couches, par rapport à la pâte « feuille à feuille » classique, donnant ainsi une pâte plus légère.\n\nLe nombre de feuilles de la pâte feuilletée f peut ainsi se déduire de f = b + 1 où b b, le nombre de couches de beurre, se calcule par la formule b = ( p + 1 ) n, p étant le nombre de plis effectués, et n le nombre de fois où la pâte a été pliée.\n\nAinsi, dans la recette classique, en pliant la pâte en trois (deux plis type pli roulé) et en réalisant six tours, on obtient b = ( 2 + 1 ) 6 soit 729 couches de beurre et donc 730 feuillets de pâte.\n\nLors de la cuisson, la chaleur du four engendre une évaporation de l’eau sous forme de chaleur dirigée vers le sommet de la pâte. Cette vapeur d&#039;eau exerce une pression sur les différentes couches de matière grasse qui sont imperméables. La rétention gazeuse provoquée permet le développement du feuilletage et ainsi l&#039;acquisition du volume final requis par gonflement des feuillets. À la fin du cycle de cuisson, la matière grasse est absorbée par la pâte et le caractère moelleux de la pâte est alors renforcé.', '2022-12-27 11:18:10', 7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cute_dog.jpg/640px-Cute_dog.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,7 +130,13 @@ INSERT INTO `post_category` (`id_post_category`, `id_post`, `id_category`) VALUE
 (11, 3, 3),
 (12, 3, 4),
 (13, 3, 6),
-(14, 3, 7);
+(14, 3, 7),
+(15, 7, 8),
+(16, 7, 9),
+(17, 7, 5),
+(21, 10, 8),
+(22, 10, 9),
+(23, 10, 5);
 
 -- --------------------------------------------------------
 
@@ -147,7 +159,9 @@ INSERT INTO `user` (`id_user`, `username`, `email`, `password`) VALUES
 (1, 'toto_boss', 'totodu77@houlala.fr', '$2y$10$skqvENbB62ozqn8RIYilnu695gNDi4nHpSVp/8KM9xBUofRkbCYMW'),
 (2, 'toto', 'toto.totovitch.totov@totallylegit.ru', '$2y$10$V7P53GEuDOf0pPWSymevA.F3d6zujhIE6rhvi.76drsjEruVkNl0q'),
 (3, 'totophe', 'christophe@gaia.org', '$2y$10$RupBFpv79Dknq.yDF8m3FeEXuLgu6FHVMC8dCnWSyeqqKSaAAvj0e'),
-(7, 'chocolatine_lover', 'bobo@zavatta.com', '$2y$10$N.659AL949GP30rgThr4buqY0TwEwMUqY2Xs8dhA99wYmksgP6lGW');
+(7, 'chocolatine_lover', 'bobo@zavatta.com', '$2y$10$N.659AL949GP30rgThr4buqY0TwEwMUqY2Xs8dhA99wYmksgP6lGW'),
+(12, 'Xx_d4rk_S4suk3_xX', 'kevin.marchand@yopmail.fr', '$2y$10$CqYsMQkiYHezxrwbDEM1mOhhyCSltkJWR76lKCJEfeg...vCI9oMi'),
+(13, 'vengeuse_masquee', 'maria@db.org', '$2y$10$GAjW49R1mCKuMX170IVDpOiwtMh9WyR4Er3eQbLT8MAv20nEBy5im');
 
 --
 -- Indexes for dumped tables
@@ -197,31 +211,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_category` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id_post` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_post` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `post_category`
 --
 ALTER TABLE `post_category`
-  MODIFY `id_post_category` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_post_category` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
