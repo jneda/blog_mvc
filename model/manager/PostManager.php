@@ -29,6 +29,22 @@ class PostManager
     return $statement->fetchAll(PDO::FETCH_CLASS, 'Post');
   }
 
+  public static function fetchAllPostsFromCategoryId(int $categoryId): array
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      SELECT post.id_post, title, content, date, id_author, image
+      FROM post
+      INNER JOIN post_category ON post.id_post=post_category.id_post
+      WHERE post_category.id_category=:categoryId
+    ';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'categoryId' => $categoryId
+    ]);
+    return $statement->fetchAll(PDO::FETCH_CLASS, 'Post');
+  }
+
   public static function getPostById(int $idPost): Post|bool
   {
     $databaseHandle = dbConnect();
