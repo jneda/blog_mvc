@@ -32,7 +32,7 @@ if (!empty($_POST)) {
     'idAuthor' => $_SESSION['user']['id'],
     'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cute_dog.jpg/640px-Cute_dog.jpg'
   ]);
-  var_dump($postId);
+  // var_dump($postId);
 
   if (!$postId) {
     $errorMessage = 'Échec de l\'enregistrement !';
@@ -41,13 +41,44 @@ if (!empty($_POST)) {
   }
   
   // save categories
+  $categoryIds = [];
+
+  // get selected categories
   foreach ($_POST['categories'] as $categoryId) {
     if (sanitizeInput($categoryId) === '') {
       continue;
     }
-    PostCategoryManager::createPostCategory($postId, $categoryId);
+    $categoryIds[] = $categoryId;
   }
 
+  // create and get new categories if needed
+  if (!empty($_POST['new-categories'])) {
+    $newCategories = explode(',', $_POST['new-categories']);
+    foreach ($newCategories as $newCategory) {
+      // sanitize and validate input
+      $newCategory = sanitizeInput($newCategory);
+      if (!isInputValid($newCategory)) {
+        echo 'Invalid category name';
+        continue;
+      }
+      // if category does not exist
+      if (CategoryManager::getCategoryByName($newCategory)) {
+        echo 'Category already exists';
+        continue;
+      }
+      // create category
+      $newCategoryId = CategoryManager::createCategory($newCategory);
+      // push its ID into category ids array
+      if ($newCategoryId) {
+        array_push($categoryIds, $newCategoryId);
+      }
+    }
+  }
+  
+  // save categories
+  foreach ($categoryIds as $categoryId) {
+    PostCategoryManager::createPostCategory($postId, $categoryId);
+  }
 }
 
 require_once './view/newPostView.php';
