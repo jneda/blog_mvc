@@ -3,7 +3,7 @@
   <div class="col-lg-8 offset-lg-2">
     <p class="fs-5 mt-3">
       <?php foreach ($categories as $category) { ?>
-        <span class="badge bg-secondary me-auto p-2 my-1"><?= $category->getName() ?></span>
+        <a href="category.php?id=<?= $category->getId() ?>" class="badge bg-secondary me-auto p-2 my-1" style="text-decoration: none;"><?= $category->getName() ?></a>
       <?php } ?>
     </p>
   </div>
