@@ -1,6 +1,6 @@
 <?php
 
-class Comment
+class Comment implements JsonSerializable
 {
   private int $id_comment;
   private int $id_post;
@@ -48,5 +48,14 @@ class Comment
   public function getContent(): string
   {
     return $this->content;
+  }
+
+  /**
+   * JsonSerializable implementation
+   */
+
+  public function jsonSerialize(): mixed
+  {
+    return get_object_vars($this);
   }
 }
