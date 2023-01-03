@@ -27,19 +27,6 @@ if ($comments) {
       'author' => $commentAuthor
     ];
   }
-  // var_dump($commentsData);
-  /* 
-  foreach ($commentsData as $commentData) {
-    foreach ($commentData as $key => $dataObject) {
-      echo json_encode($dataObject);
-    }
-  }
- */
-
-  // CORS
   
-  // header('Access-Control-Allow-Origin: http://localhost:8080');
-  // header('Access-Control-Allow-Credentials: true');
-
   echo json_encode($commentsData);
 }

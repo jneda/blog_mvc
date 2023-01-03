@@ -1,18 +1,19 @@
-const getCommentsButton = document.querySelector('#ajax-comments');
+const postRowElement = document.querySelector('#post');
+const postContainerElement = document.querySelector('#post-container');
 
 function makeCommentCard(commentData) {
   // bootstrap outer structure
   const row = document.createElement('div');
-  row.classList.add(['row', 'my-3']);
+  row.classList.add('row', 'my-3');
 
   const col = document.createElement('div');
-  col.classList.add(['col-lg-8', 'offset-lg-2'])
+  col.classList.add('col-lg-8', 'offset-lg-2')
 
   const card = document.createElement('div');
-  card.classList.add(['card']);
+  card.classList.add('card');
 
   const cardBody = document.createElement('div');
-  cardBody.classList.add(['card-body']);
+  cardBody.classList.add('card-body');
 
   row.appendChild(col);
   col.appendChild(card);
@@ -39,12 +40,12 @@ function makeCommentCard(commentData) {
   const commentText = document.createTextNode(`${commentData.comment.content}`);
   commentContent.appendChild(commentText);
 
-  card.appendChild(commentInfo);
-  card.appendChild(commentContent);
+  cardBody.appendChild(commentInfo);
+  cardBody.appendChild(commentContent);
 
   // fingers crossed
   row.appendChild(card);
-  document.body.appendChild(row);
+  postContainerElement.appendChild(row);
 }
 
 function requestListener() {
@@ -58,8 +59,9 @@ function requestListener() {
   }
 }
 
-function getComments(event) {
-  const postId = event.target.dataset.postId;
+function getComments() {
+  console.log(postRowElement.dataset);
+  const postId = postRowElement.dataset.postId;
   if (!postId) {
     console.log('invalid id');
     return;
@@ -73,4 +75,5 @@ function getComments(event) {
   // console.log('request sent');
 }
 
-getCommentsButton.addEventListener('click', getComments);
+// getCommentsButton.addEventListener('click', getComments);
+window.addEventListener('load', getComments);

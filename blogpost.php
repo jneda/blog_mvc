@@ -28,7 +28,7 @@ if (empty($_GET)) {
 
     // fetch post author
     $author = UserManager::getUserById($post->getIdAuthor());
-    
+/*     
     // fetch comments data
     $comments = CommentManager::fetchCommentsByPostId($postId);
     if ($comments) {
@@ -41,7 +41,7 @@ if (empty($_GET)) {
         ];
       }
     }
-
+ */
     // fetch categories data
     $categories = PostCategoryManager::fetchCategoriesFromPostId($postId);
   }

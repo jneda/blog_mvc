@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="row my-3">
+<div class="row my-3" id="post" data-post-id="<?= $post->getIdPost() ?>">
   <div class="col-lg-8 offset-lg-2">
     <!-- post image -->
     <img src="uploads/<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">

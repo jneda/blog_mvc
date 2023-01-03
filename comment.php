@@ -45,5 +45,6 @@ if (isset($_POST['content'])) {
 // display views
 
 require_once './view/partials/header.php';
+require_once './view/partials/navbar.php';
 require_once './view/commentView.php';
 require_once './view/partials/footer.php';

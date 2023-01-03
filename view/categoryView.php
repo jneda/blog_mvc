@@ -1,6 +1,7 @@
 <?php
 
 require_once './view/partials/header.php';
+require_once './view/partials/navbar.php';
 
 ?>
 
