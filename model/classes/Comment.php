@@ -51,6 +51,15 @@ class Comment implements JsonSerializable
   }
 
   /**
+   * Setters
+   */
+
+  public function setDate(string $newDate): void
+  {
+    $this->date = $newDate;
+  }
+
+  /**
    * JsonSerializable implementation
    */
 
