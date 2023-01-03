@@ -3,6 +3,7 @@ session_start();
 
 require_once './model/manager/CategoryManager.php';
 require_once './model/manager/PostCategoryManager.php';
+require_once './model/manager/ImageUploadManager.php';
 
 $categories = CategoryManager::fetchAll();
 
@@ -24,13 +25,30 @@ if (!empty($_POST)) {
     die();
   }
 
+  // image upload
+  if (!isset($_FILES['image'])) {
+    $errorMessage = 'Données invalides';
+    require_once './view/newPostView.php';
+    die();
+  }
+
+  // var_dump($_FILES['image']);
+
+  $imagePath = ImageUploadManager::uploadImage($_FILES['image']);
+  // var_dump($imagePath);
+  if (!$imagePath) {
+    $errorMessage = 'Données invalides';
+    require_once './view/newPostView.php';
+    die();
+  }
+
   // create post in database
   require_once './model/manager/PostManager.php';
   $postId = PostManager::createPost([
     'title' => $title,
     'content' => $content,
     'idAuthor' => $_SESSION['user']['id'],
-    'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Cute_dog.jpg/640px-Cute_dog.jpg'
+    'image' => $imagePath
   ]);
   // var_dump($postId);
 

@@ -9,7 +9,7 @@ if (!isset($errorMessage)) {
 
 <?php
 
-  require_once './view/partials/blogpost.php';
+  require_once './view/partials/blogPost.php';
   if (isset($commentsData)) {
     // var_dump($commentsData);
     require_once './view/partials/commentsList.php';

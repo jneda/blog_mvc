@@ -4,7 +4,7 @@ require_once 'partials/header.php';
 
 ?>
 <div class="container my-3">
-  <form action="new-post.php" method="POST">
+  <form action="new-post.php" method="POST" enctype="multipart/form-data">
     <div class="mb-3 col-md-8 offset-md-2">
       <label for="title" class="form-label">Titre :</label>
       <input type="text" class="form-control" id="title" name="title">
