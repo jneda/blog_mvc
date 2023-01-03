@@ -19,6 +19,7 @@ $comments = CommentManager::fetchCommentsByPostId($postId);
 if ($comments) {
   $commentsData = [];
   foreach ($comments as $comment) {
+    $comment->setDate($comment->getFormattedDate());
     $commentAuthor = UserManager::getUserById($comment->getAuthorId());
     $commentAuthor->setPassword('');
     $commentsData[] = [
