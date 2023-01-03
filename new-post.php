@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['user']) || empty($_SESSION['user']['id'])) {
+  header('Location: index.php');
+  die();
+}
+
 require_once './model/manager/CategoryManager.php';
 require_once './model/manager/PostCategoryManager.php';
 require_once './model/manager/ImageUploadManager.php';
