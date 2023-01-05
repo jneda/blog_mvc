@@ -22,8 +22,9 @@ if (!isInputValid($idPost)) {
 
 // if post exists
 $post = PostManager::getPostById($idPost);
+$userIsAuthor = isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getIdAuthor();
 
-if (!$post) {
+if (!$post || !$userIsAuthor) {
   // redirect and die
   header('Location: index.php');
   die();
