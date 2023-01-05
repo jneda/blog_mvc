@@ -18,7 +18,7 @@ $userId = $_SESSION['user']['id'];
 $postId = $_GET['id'];
 
 $post = PostManager::getPostById($postId);
-$userIsAuthor = isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getUserId();
+$userIsAuthor = isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getIdAuthor();
 
 if (!$post || !$userIsAuthor) {
   header('Location: index.php');
