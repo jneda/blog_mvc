@@ -82,6 +82,28 @@ class PostManager
   }
 
   /**
+   * Update static function
+   */
+
+  public static function updatePost(Post $post): bool
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      UPDATE post
+      SET title=:title, content=:content, date=:date, image=:image
+      WHERE id_post=:postId
+    ';
+    $statement = $databaseHandle->prepare($query);
+    return $statement->execute([
+      'postId' => $post->getIdPost(),
+      'title' => $post->getTitle(),
+      'content' => $post->getContent(),
+      'date' => (new DateTime())->format('Y-m-d H:i:s'),
+      'image' => $post->getImage()
+    ]);
+  }
+
+  /**
    * Delete static method
    */
 
