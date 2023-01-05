@@ -9,7 +9,7 @@ require_once './model/manager/ImageUploadManager.php';
 $userUnset = !isset($_SESSION['user']) || empty($_SESSION['user']['id']);
 $postIdUnset = !isset($_GET['id']) || empty($_GET['id']);
 
-if ($userUnset || $postIdUnset) {
+if ($userUnset || $postIdUnset || !$userIsAuthor) {
   header('Location: index.php');
   die();
 }
@@ -18,8 +18,9 @@ $userId = $_SESSION['user']['id'];
 $postId = $_GET['id'];
 
 $post = PostManager::getPostById($postId);
+$userIsAuthor = isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getUserId();
 
-if (!$post) {
+if (!$post || !$userIsAuthor) {
   header('Location: index.php');
   die();
 }

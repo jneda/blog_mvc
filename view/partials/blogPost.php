@@ -30,7 +30,7 @@
     </div>
 
     <!-- author actions -->
-    <?php if(isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $author->getUserId())?>
+    <?php if(isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $author->getIdAuthor()) {?>
     <div class="row">
       <div class="col">
         <a href="edit-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-outline-primary my-1">
@@ -43,6 +43,7 @@
           </a>
       </div>
     </div>
+    <?php } ?>
 
     <!-- user actions -->
     <div class="row">
