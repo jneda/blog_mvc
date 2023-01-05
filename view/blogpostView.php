@@ -11,7 +11,6 @@ if (!isset($errorMessage)) {
 
   require_once './view/partials/blogPost.php';
   if (isset($commentsData)) {
-    // var_dump($commentsData);
     require_once './view/partials/commentsList.php';
   }
 } else {

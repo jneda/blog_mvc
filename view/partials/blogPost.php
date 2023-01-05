@@ -29,18 +29,40 @@
       <p style="white-space: pre-wrap;"><?= $post->getContent() ?></p>
     </div>
 
+    <!-- author actions -->
+    <?php if(isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $author->getUserId())?>
+    <div class="row">
+      <div class="col">
+        <a href="edit-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-outline-primary my-1">
+          Modifier cet article
+        </a>
+      </div>
+      <div class="col">
+          <a href="delete.php?id=<?= $post->getIdPost() ?>" class="btn btn-danger my-1">
+            Supprimer cet article
+          </a>
+      </div>
+    </div>
+
     <!-- user actions -->
-    <a href="index.php" class="btn btn-outline-primary my-1">
-      &laquo; Je retourne lire d'autres articles !
-    </a>
-    <?php if (isset($_SESSION['user']['id'])) { ?>
-      <a href="comment.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary my-1">
-        Quel super article ! Je commente !
-      </a>
-    <?php } else { ?>
-      <a href="login.php" class="btn btn-primary my-1">
-        Quel super article ! Je me connecte pour commenter !
-      </a>
-    <?php } ?>
+    <div class="row">
+      <div class="col">
+        <a href="index.php" class="btn btn-outline-primary my-1">
+          &laquo; Je retourne lire d'autres articles !
+        </a>
+      </div>
+      <div class="col">
+        <?php if (isset($_SESSION['user']['id'])) { ?>
+          <a href="comment.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary my-1">
+            Quel super article ! Je commente !
+          </a>
+        <?php } else { ?>
+          <a href="login.php" class="btn btn-primary my-1">
+            Quel super article ! Je me connecte pour commenter !
+          </a>
+        <?php } ?>
+      </div>
+    </div>
+
   </div>
 </div>
