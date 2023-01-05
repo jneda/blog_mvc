@@ -30,19 +30,19 @@
     </div>
 
     <!-- author actions -->
-    <?php if(isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getIdAuthor()) {?>
-    <div class="row">
-      <div class="col">
-        <a href="edit-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-outline-primary my-1">
-          Modifier cet article
-        </a>
-      </div>
-      <div class="col">
+    <?php if (isset($_SESSION['user']['id']) && $_SESSION['user']['id'] === $post->getIdAuthor()) { ?>
+      <div class="row">
+        <div class="col">
+          <a href="edit-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-outline-primary my-1">
+            Modifier cet article
+          </a>
+        </div>
+        <div class="col">
           <a href="delete-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-danger my-1">
             Supprimer cet article
           </a>
+        </div>
       </div>
-    </div>
     <?php } ?>
 
     <!-- user actions -->
@@ -52,17 +52,15 @@
           &laquo; Je retourne lire d'autres articles !
         </a>
       </div>
-      <div class="col">
-        <?php if (isset($_SESSION['user']['id'])) { ?>
-          <a href="comment.php?id=<?= $post->getIdPost() ?>" class="btn btn-primary my-1">
-            Quel super article ! Je commente !
-          </a>
-        <?php } else { ?>
+      <?php if (!isset($_SESSION['user']['id'])) { ?>
+        <div class="col">
           <a href="login.php" class="btn btn-primary my-1">
             Quel super article ! Je me connecte pour commenter !
           </a>
-        <?php } ?>
-      </div>
+        </div>
+      <?php } else {
+        require_once './view/commentView.php';
+      } ?>
     </div>
 
   </div>

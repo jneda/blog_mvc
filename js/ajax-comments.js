@@ -1,5 +1,7 @@
 const postRowElement = document.querySelector('#post');
 const postContainerElement = document.querySelector('#post-container');
+const postCommentButtonElement = document.querySelector('#post-comment-btn');
+const commentFormElement = document.querySelector('form');
 
 function makeCommentCard(commentData) {
   // bootstrap outer structure
@@ -22,15 +24,20 @@ function makeCommentCard(commentData) {
   // card body content
   const commentInfo = document.createElement('p');
   commentInfo.classList.add('comment-author');
+
   const authorText = document.createTextNode('par ');
   commentInfo.appendChild(authorText);
+
   const authorStrong = document.createElement('strong');
   const authorName = document.createTextNode(`${commentData.author.username}`);
+
   authorStrong.appendChild(authorName);
   commentInfo.appendChild(authorStrong);
+
   const dateSpan = document.createElement('span');
   dateSpan.classList.add('text-muted');
   const dateText = document.createTextNode(`- ${commentData.comment.date}`);
+
   dateSpan.appendChild(dateText);
   commentInfo.appendChild(dateSpan);
 
@@ -38,6 +45,7 @@ function makeCommentCard(commentData) {
   commentContent.classList.add('card-text');
   commentContent.style.whiteSpace = 'pre-wrap';
   const commentText = document.createTextNode(`${commentData.comment.content}`);
+  
   commentContent.appendChild(commentText);
 
   cardBody.appendChild(commentInfo);
@@ -75,5 +83,21 @@ function getComments() {
   // console.log('request sent');
 }
 
+function submitComment() {
+  const postId = postCommentButtonElement.dataset.postId;
+  const userId = postCommentButtonElement.dataset.userId;
+  console.log(`user #${userId} commenting post #${postId}`);
+  const formData = new FormData(commentFormElement);
+  formData.append('idPost', postId);
+  console.log(formData);
+
+  const request = new XMLHttpRequest();
+  request.addEventListener('load', getComments);
+  request.open('POST', `http://localhost/comment.php?id`);
+  request.send(formData);
+}
+
 // getCommentsButton.addEventListener('click', getComments);
 window.addEventListener('load', getComments);
+
+postCommentButtonElement.addEventListener('click', submitComment);
