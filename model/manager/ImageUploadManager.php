@@ -10,7 +10,8 @@ final class ImageUploadManager
 
   public static function uploadImage(array $userFile): string|bool
   {
-    $targetFile =self::UPLOADS_FOLDER . basename($userFile['name']);
+    $uniqueName = uniqid() . '-' . $userFile['name'];
+    $targetFile =self::UPLOADS_FOLDER . $uniqueName;
     $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
     // validate file
@@ -28,7 +29,7 @@ final class ImageUploadManager
 
     // try and save file
     if (move_uploaded_file($userFile['tmp_name'], $targetFile)) {
-      return $targetFile;
+      return $uniqueName;
     }
     return false;
   }

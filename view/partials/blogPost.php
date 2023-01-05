@@ -12,7 +12,7 @@
 <div class="row my-3">
   <div class="col-lg-8 offset-lg-2">
     <!-- post image -->
-    <img src="<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">
+    <img src="uploads/<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">
 
     <!-- post content -->
     <div class="my-3">
