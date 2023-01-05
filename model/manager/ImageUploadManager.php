@@ -33,4 +33,9 @@ final class ImageUploadManager
     }
     return false;
   }
+
+  public static function deleteImage($fileName)
+  {
+    unlink(self::UPLOADS_FOLDER . $fileName);
+  }
 } 

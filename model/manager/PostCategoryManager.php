@@ -40,4 +40,22 @@ final class PostCategoryManager
       'categoryId' => $categoryId
     ]);
   }
+
+  /**
+   * Delete static method
+   */
+
+  public static function deletePostCategory(int $postId, int $categoryId)
+  {
+    $databaseHandle = dbConnect();
+    $query = '
+      DELETE FROM post_category
+      WHERE id_post=:postId AND id_category=:categoryId
+    ';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'postId' => $postId,
+      'categoryId' => $categoryId
+    ]);
+  }
 }

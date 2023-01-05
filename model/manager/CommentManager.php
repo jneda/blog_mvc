@@ -39,4 +39,18 @@ class CommentManager
       'content' => $commentData['content']
     ]);
   }
+
+  /**
+   * Delete static method
+   */
+
+  public static function deleteComment(int $commentId)
+  {
+    $databaseHandle = dbConnect();
+    $query = 'DELETE FROM comment WHERE id_comment=:commentId';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'commentId' => $commentId
+    ]);
+  }
 }

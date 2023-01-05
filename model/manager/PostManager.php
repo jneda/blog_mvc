@@ -80,4 +80,18 @@ class PostManager
 
     return $databaseHandle->lastInsertId();
   }
+
+  /**
+   * Delete static method
+   */
+
+  public static function deletePost(int $postId)
+  {
+    $databaseHandle = dbConnect();
+    $query = 'DELETE FROM post WHERE id_post=:postId';
+    $statement = $databaseHandle->prepare($query);
+    $statement->execute([
+      'postId' => $postId
+    ]);
+  }
 }
