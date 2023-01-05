@@ -38,7 +38,7 @@
         </a>
       </div>
       <div class="col">
-          <a href="delete.php?id=<?= $post->getIdPost() ?>" class="btn btn-danger my-1">
+          <a href="delete-post.php?id=<?= $post->getIdPost() ?>" class="btn btn-danger my-1">
             Supprimer cet article
           </a>
       </div>
