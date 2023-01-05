@@ -28,7 +28,6 @@ if (empty($_GET)) {
 
     // fetch post author
     $author = UserManager::getUserById($post->getIdAuthor());
-    var_dump($author);
     
     // fetch comments data
     $comments = CommentManager::fetchCommentsByPostId($postId);
