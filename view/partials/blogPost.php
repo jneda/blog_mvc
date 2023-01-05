@@ -63,5 +63,6 @@
       } ?>
     </div>
 
+    <div id="comment-container"></div>
   </div>
 </div>

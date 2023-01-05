@@ -1,5 +1,5 @@
 const postRowElement = document.querySelector('#post');
-const postContainerElement = document.querySelector('#post-container');
+const commentContainerElement = document.querySelector('#comment-container');
 const postCommentButtonElement = document.querySelector('#post-comment-btn');
 const commentFormElement = document.querySelector('form');
 
@@ -53,14 +53,14 @@ function makeCommentCard(commentData) {
 
   // fingers crossed
   row.appendChild(card);
-  postContainerElement.appendChild(row);
+  commentContainerElement.appendChild(row);
 }
 
 function requestListener() {
   const commentsData = JSON.parse(this.responseText);
-
+  
   // update DOM
-
+  commentContainerElement.innerHTML = '';
   for (const commentData of commentsData) {
     // console.log(commentData);
     makeCommentCard(commentData);
