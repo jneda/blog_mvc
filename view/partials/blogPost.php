@@ -26,7 +26,7 @@
       </p>
       <!-- post image -->
       <img src="uploads/<?php echo $post->getImage() ?>" class="img-fluid rounded w-100 d-block mx-auto" alt="<?php echo $post->getTitle() ?>">
-      <p style="white-space: pre-wrap;"><?= $post->getContent() ?></p>
+      <p style="white-space: pre-wrap;" class="mt-3"><?= $post->getContent() ?></p>
     </div>
 
     <!-- author actions -->
