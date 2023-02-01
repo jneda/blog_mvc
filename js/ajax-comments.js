@@ -93,7 +93,7 @@ function submitComment() {
 
   const request = new XMLHttpRequest();
   request.addEventListener('load', getComments);
-  request.open('POST', `http://localhost/comment.php?id`);
+  request.open('POST', `http://localhost:8080/comment.php`);
   request.send(formData);
 }
 
