@@ -1,6 +1,6 @@
 <?php
 
-class User
+class User implements JsonSerializable
 {
   private int $id_user;
   private string $username;
@@ -53,5 +53,14 @@ class User
   public function setPassword(string $password): void
   {
     $this->password = $password;
+  }
+
+  /**
+   * JsonSerializable implementation
+   */
+
+  public function jsonSerialize(): mixed
+  {
+    return get_object_vars($this);
   }
 }
