@@ -14,10 +14,11 @@ if (!isInputValid($postId)) {
 }
 
 // fetch comments data
+$commentsData = [];
+
 $comments = CommentManager::fetchCommentsByPostId($postId);
-// var_dump($comments);
+
 if ($comments) {
-  $commentsData = [];
   foreach ($comments as $comment) {
     $comment->setDate($comment->getFormattedDate());
     $commentAuthor = UserManager::getUserById($comment->getAuthorId());
@@ -27,6 +28,6 @@ if ($comments) {
       'author' => $commentAuthor
     ];
   }
-  
-  echo json_encode($commentsData);
 }
+
+echo json_encode($commentsData);

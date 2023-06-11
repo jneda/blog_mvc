@@ -4,7 +4,7 @@ require_once './view/partials/header.php';
 
 ?>
 
-<script src="../js/ajax-comments.js" defer></script>
+<script src="./js/ajax-comments.js" defer></script>
 
 <?php
 

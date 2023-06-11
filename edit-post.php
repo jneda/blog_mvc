@@ -9,7 +9,7 @@ require_once './model/manager/ImageUploadManager.php';
 $userUnset = !isset($_SESSION['user']) || empty($_SESSION['user']['id']);
 $postIdUnset = !isset($_GET['id']) || empty($_GET['id']);
 
-if ($userUnset || $postIdUnset || !$userIsAuthor) {
+if ($userUnset || $postIdUnset) {
   header('Location: index.php');
   die();
 }

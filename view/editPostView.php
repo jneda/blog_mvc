@@ -1,6 +1,7 @@
 <?php
 
 require_once 'partials/header.php';
+require_once 'partials/navbar.php';
 
 ?>
 <div class="container my-3">
