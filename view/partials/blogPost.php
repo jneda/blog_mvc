@@ -10,7 +10,7 @@
 </div>
 
 <div class="row my-3" id="post" data-post-id="<?= $post->getIdPost() ?>">
-  <div class="col-lg-8 offset-lg-2">
+  <div class="col-lg-6 offset-lg-3">
 
     <!-- post content -->
     <div class="my-3">
