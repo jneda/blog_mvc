@@ -19,7 +19,6 @@ require_once './view/partials/navbar.php';
     <input type="password" class="form-control" id="password" name="password">
   </div>
   <button type="submit" class="btn btn-primary offset-md-3">S'inscrire</button>
-  <!-- <a href="signup.php" class="btn btn-outline-primary">Se connecter</a> -->
 </form>
 
 <?php
