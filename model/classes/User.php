@@ -45,7 +45,7 @@ class User implements JsonSerializable
     $this->username = $username;
   }
 
-  public function setEamail(string $email): void
+  public function setEmail(string $email): void
   {
     $this->email = $email;
   }
