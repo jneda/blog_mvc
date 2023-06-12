@@ -10,7 +10,7 @@ if (isset($_GET['login']) && $_GET['login'] === 'success') {
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-100">
 
 <head>
   <meta charset="UTF-8">
