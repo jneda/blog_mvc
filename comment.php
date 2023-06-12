@@ -4,7 +4,7 @@ session_start();
 require_once './lib/validation.php';
 require_once './model/manager/CommentManager.php';
 
-var_dump($_POST);
+// var_dump($_POST);
 
 if (isset($_POST['content'])) {
 

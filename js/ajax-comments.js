@@ -88,7 +88,7 @@ function submitComment() {
   // console.log(`user #${userId} commenting post #${postId}`);
   const formData = new FormData(commentFormElement);
   formData.append("idPost", postId);
-  console.log(formData);
+  // console.log(formData);
 
   const request = new XMLHttpRequest();
   request.addEventListener("load", getComments);
