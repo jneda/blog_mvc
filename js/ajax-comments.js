@@ -57,13 +57,13 @@ function makeCommentCard(commentData) {
 }
 
 function requestListener() {
-  console.log(this);
+  // console.log(this);
   const commentsData = JSON.parse(this.responseText);
 
   // update DOM
   commentContainerElement.innerHTML = "";
   for (const commentData of commentsData) {
-    console.log(commentData);
+    // console.log(commentData);
     makeCommentCard(commentData);
   }
 }
@@ -87,7 +87,7 @@ function getComments() {
 function submitComment() {
   const postId = postCommentButtonElement.dataset.postId;
   const userId = postCommentButtonElement.dataset.userId;
-  console.log(`user #${userId} commenting post #${postId}`);
+  // console.log(`user #${userId} commenting post #${postId}`);
   const formData = new FormData(commentFormElement);
   formData.append("idPost", postId);
   console.log(formData);
@@ -101,4 +101,6 @@ function submitComment() {
 // getCommentsButton.addEventListener('click', getComments);
 window.addEventListener("load", getComments);
 
-postCommentButtonElement.addEventListener("click", submitComment);
+if (postCommentButtonElement) {
+  postCommentButtonElement.addEventListener("click", submitComment);
+}
