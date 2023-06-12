@@ -50,8 +50,7 @@ function makeCommentCard(commentData) {
 
   cardBody.appendChild(commentInfo);
   cardBody.appendChild(commentContent);
-
-  // fingers crossed
+  
   row.appendChild(card);
   commentContainerElement.appendChild(row);
 }
@@ -86,7 +85,6 @@ function getComments() {
 
 function submitComment() {
   const postId = postCommentButtonElement.dataset.postId;
-  const userId = postCommentButtonElement.dataset.userId;
   // console.log(`user #${userId} commenting post #${postId}`);
   const formData = new FormData(commentFormElement);
   formData.append("idPost", postId);

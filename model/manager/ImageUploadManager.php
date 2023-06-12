@@ -11,7 +11,7 @@ final class ImageUploadManager
   public static function uploadImage(array $userFile): string|bool
   {
     $uniqueName = uniqid() . '-' . $userFile['name'];
-    $targetFile =self::UPLOADS_FOLDER . $uniqueName;
+    $targetFile = self::UPLOADS_FOLDER . $uniqueName;
     $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
     // validate file
@@ -38,4 +38,4 @@ final class ImageUploadManager
   {
     unlink(self::UPLOADS_FOLDER . $fileName);
   }
-} 
+}
