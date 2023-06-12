@@ -31,7 +31,11 @@ if (!empty($_POST)) {
   }
 
   // image upload
-  if (!isset($_FILES['image'])) {
+  if (
+    !isset($_FILES['image'])
+    || empty($_FILES['image'])
+    || !is_uploaded_file($_FILES['image']['tmp_name'])
+  ) {
     $errorMessage = 'Données invalides';
     require_once './view/newPostView.php';
     die();
@@ -62,7 +66,7 @@ if (!empty($_POST)) {
   } else {
     $successMessage = 'Ton article a été sauvegardé pour la postérité !';
   }
-  
+
   // save categories
   $categoryIds = [];
 
@@ -97,7 +101,7 @@ if (!empty($_POST)) {
       }
     }
   }
-  
+
   // save categories
   foreach ($categoryIds as $categoryId) {
     PostCategoryManager::createPostCategory($postId, $categoryId);
