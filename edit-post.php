@@ -50,7 +50,7 @@ if (!empty($_POST)) {
   }
 
   // image upload
-  if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name'])) {
+  if (isset($_FILES['image']['name']) && !empty($_FILES['image']['name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
     $imagePath = ImageUploadManager::uploadImage($_FILES['image']);
     if (!$imagePath) {
       $errorMessage = 'Fichier invalide';
@@ -66,7 +66,7 @@ if (!empty($_POST)) {
   // update post data
   // TODO: make PostManager play nice with Post constructor then rewrite this
   $post->setTitle($title);
-  $post->setContent($content);  
+  $post->setContent($content);
 
   // update post in database
   $updateStatus = PostManager::updatePost($post);
@@ -81,12 +81,14 @@ if (!empty($_POST)) {
   $categoryIds = [];
 
   // get selected categories not already saved for this post
-  foreach ($_POST['categories'] as $categoryId) {
-    if (sanitizeInput($categoryId) === '') {
-      continue;
-    }
-    if (!in_array($categoryId, $postCategoryIds)) {
-      $categoryIds[] = $categoryId;
+  if (isset($_POST['categories']) && !empty($_POST['categories'])) {
+    foreach ($_POST['categories'] as $categoryId) {
+      if (sanitizeInput($categoryId) === '') {
+        continue;
+      }
+      if (!in_array($categoryId, $postCategoryIds)) {
+        $categoryIds[] = $categoryId;
+      }
     }
   }
 
