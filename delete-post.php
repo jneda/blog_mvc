@@ -51,7 +51,7 @@ if ($dependingComments) {
 // delete image
 ImageUploadManager::deleteImage($post->getImage());
 
-// delete it
+// delete post
 if ($post) {
   PostManager::deletePost($post->getIdPost());
 }

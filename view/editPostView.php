@@ -35,7 +35,6 @@ require_once 'partials/navbar.php';
       <div id="new-categories-help" class="form-text">Entrer de nouvelles catégories séparées par une virgule</div>
     </div>
     <button type="submit" class="btn btn-primary offset-md-2">Je publie !</button>
-    <!-- <a href="signup.php" class="btn btn-outline-primary">S'inscrire</a> -->
   </form>
 
   <?php
