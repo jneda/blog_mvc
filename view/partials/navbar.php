@@ -4,7 +4,7 @@
   <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php">
-        <span class="mb-0 fs-3" id="site-title">Bonjour tout le monde ! 🥸</span>
+        <span class="mb-0 fs-3" id="site-title">Bonjour tout le monde ! 🙂</span>
         <small class="text-muted d-none d-md-inline fs-5"> Un blog d'Anthony Houlala</small>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
