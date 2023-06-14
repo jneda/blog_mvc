@@ -10,7 +10,7 @@ if (!empty($_POST)) {
   require_once './lib/validation.php';
   $username = sanitizeInput($_POST['username']);
   $email = sanitizeInput($_POST['email']);
-  $password = sanitizeInput($_POST['password']);
+  $password = $_POST['password'];
 
   if (
     !isInputValid($username) ||

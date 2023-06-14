@@ -8,8 +8,8 @@ if (!empty($_POST)) {
   // validate inputs
 
   require_once './lib/validation.php';
-  $email = sanitizeInput($_POST['email']);
-  $password = sanitizeInput($_POST['password']);
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
   if (!isInputValid($email) || !isInputValid($password)) {
     $errorMessage = 'Données invalides';
