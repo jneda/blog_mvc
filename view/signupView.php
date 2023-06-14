@@ -1,8 +1,13 @@
 <?php
 
 require_once 'partials/header.php';
-require_once './view/partials/navbar.php';
+require_once 'partials/navbar.php';
 
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+  $errorMessage = $_SESSION['error'];
+  $_SESSION['error'] = '';
+  require_once 'partials/errorAlert.php';
+}
 ?>
 
 <form class="container my-3" action="signup.php" method="POST">
@@ -23,4 +28,4 @@ require_once './view/partials/navbar.php';
 
 <?php
 
-require_once "partials/footer.php";
+require_once 'partials/footer.php';

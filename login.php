@@ -13,8 +13,6 @@ if (!empty($_POST)) {
 
   if (!isInputValid($email) || !isInputValid($password)) {
     $errorMessage = 'Données invalides';
-    require_once './view/partials/errorAlert.php';
-    die();
   }
 
   // fetch user
@@ -23,14 +21,23 @@ if (!empty($_POST)) {
 
   if (!$user) {
     $errorMessage = 'Ton email est inconnu ! 🤔';
-    require_once './view/partials/errorAlert.php';
+    $_SESSION['error'] = $errorMessage;
+    header('Location: login.php');
     die();
   }
 
   // check password
   if (!password_verify($password, $user->getPassword())) {
     $errorMessage = 'Mot de passe erroné ! 🤔';
-    require_once './view/partials/errorAlert.php';
+    $_SESSION['error'] = $errorMessage;
+    header('Location: login.php');
+    die();
+  }
+
+  // abort if error occurred
+  if (isset($errorMessage) && !empty($errorMessage)) {
+    $_SESSION['error'] = $errorMessage;
+    header('Location: login.php');
     die();
   }
 

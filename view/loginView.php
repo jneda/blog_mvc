@@ -3,6 +3,11 @@
 require_once 'partials/header.php';
 require_once 'partials/navbar.php';
 
+if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+  $errorMessage = $_SESSION['error'];
+  $_SESSION['error'] = '';
+  require_once 'partials/errorAlert.php';
+}
 ?>
 
 <form class="container my-3" action="login.php" method="POST">

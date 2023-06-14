@@ -18,7 +18,8 @@ if (!empty($_POST)) {
     !isInputValid($password)
   ) {
     $errorMessage = 'Données invalides';
-    require_once './view/partials/errorAlert.php';
+    $_SESSION['error'] = $errorMessage;
+    header('Location: signup.php');
     die();
   }
 
@@ -36,7 +37,8 @@ if (!empty($_POST)) {
       $errorMessages[] = 'Cet email est déjà utilisé';
     }
     $errorMessage = implode(' - ', $errorMessages);
-    require_once './view/partials/errorAlert.php';
+    $_SESSION['error'] = $errorMessage;
+    header('Location: signup.php');
     die();
   }
 
@@ -55,7 +57,8 @@ if (!empty($_POST)) {
 
   if (!$ok) {
     $errorMessage = 'Échec de l\'inscription ! 🤔';
-    require_once './view/partials/errorAlert.php';
+    $_SESSION['error'] = $errorMessage;
+    header('Location: signup.php');
     die();
   }
 
