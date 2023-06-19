@@ -22,10 +22,16 @@ if ($comments) {
   foreach ($comments as $comment) {
     $comment->setDate($comment->getFormattedDate());
     $commentAuthor = UserManager::getUserById($comment->getAuthorId());
-    $commentAuthor->setPassword('');
+
+    // make a plain PHP object from the User object, only storing the username and email
+    $authorObject = (object) [
+      'username' => $commentAuthor->getUsername(),
+      'email' => $commentAuthor->getEmail()
+    ];
+
     $commentsData[] = [
       'comment' => $comment,
-      'author' => $commentAuthor
+      'author' => $authorObject
     ];
   }
 }
